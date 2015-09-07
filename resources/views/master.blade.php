@@ -9,8 +9,11 @@
     @show
 </head>
 <body>
+@include('navigation')
+
 @include('flash::message')
 @yield('content')
+
 @section('scripts')
     {!! HTML::script('js/jquery.min.js') !!}
     {!! HTML::script('js/jquery-ui.min.js') !!}

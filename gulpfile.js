@@ -56,7 +56,7 @@ gulp.task('copy', function () {
 gulp.task('script', function () {
 
     return gulp.src([
-        'resources/assets/js/**/*.js',
+        'resources/assets/js/*.js',
         'public/packages/**/*.js'
     ])
         .pipe(concat('app.js'))

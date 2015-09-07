@@ -1,4 +1,6 @@
 @extends('master')
 @section('content')
-    trololol
+    <div class="container">
+
+    </div>
 @endsection

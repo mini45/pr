@@ -17,11 +17,11 @@
 |
 */
 
-
-
 Route::get('/', function () {
     return redirect(route('auth.login'));
 });
+
+
 
 
 Route::group(['middleware'=>'guest'],function(){
@@ -30,11 +30,15 @@ Route::group(['middleware'=>'guest'],function(){
 });
 
 Route::group(['middleware'=>'auth'],function() {
-    Route::get('auth/logout', 'Auth\AuthController@getLogout');
-
-    Route::get('dashboard',function(){
-        return view('welcome');
+    Route::get('/', function () {
+        return redirect(route('news'));
     });
+    Route::get('auth/logout', ['as'=>'logout','uses'=>'Auth\AuthController@getLogout']);
+
+//    Route::get('news',function(){
+//        return view('news');
+//    });
+    Route::get('news',['as'=>'news','uses'=>'MainController@getNews']);
 });
 
 

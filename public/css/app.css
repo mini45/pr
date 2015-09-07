@@ -6687,4 +6687,7 @@ td.visible-print {
 .fa-meanpath:before {
   content: ""; }
 
+body {
+  padding-top: 70px; }
+
 /*# sourceMappingURL=app.css.map */
