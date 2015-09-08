@@ -1,7 +1,9 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: andré
- * Date: 08.09.2015
- * Time: 16:20
- */
+@extends('master')
+@section('content')
+    <div class="container">
+
+    </div>
+@endsection
+@section('title')
+    Events
+@endsection

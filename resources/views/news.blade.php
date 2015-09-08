@@ -4,3 +4,6 @@
 
     </div>
 @endsection
+@section('title')
+    News
+@endsection

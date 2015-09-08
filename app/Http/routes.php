@@ -35,10 +35,13 @@ Route::group(['middleware'=>'auth'],function() {
     });
     Route::get('auth/logout', ['as'=>'logout','uses'=>'Auth\AuthController@getLogout']);
 
-//    Route::get('news',function(){
-//        return view('news');
-//    });
     Route::get('news',['as'=>'news','uses'=>'MainController@getNews']);
+    Route::get('events',['as'=>'events','uses'=>'MainController@getEvents']);
+    Route::get('finanzen',['as'=>'finanzen','uses'=>'MainController@getFinanzen']);
+    Route::get('gallerie',['as'=>'gallerie','uses'=>'MainController@getGallerie']);
+    Route::get('vote',['as'=>'vote','uses'=>'MainController@getVote']);
+
+
 });
 
 

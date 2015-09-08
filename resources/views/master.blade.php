@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>App Name - @yield('title')</title>
+    <title>@yield('title')</title>
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @section('styles')
@@ -12,7 +12,10 @@
 @include('navigation')
 
 @include('flash::message')
-@yield('content')
+<div class="container">
+    @yield('content')
+</div>
+
 
 @section('scripts')
     {!! HTML::script('js/jquery.min.js') !!}
