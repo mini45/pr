@@ -146,6 +146,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         \Laracasts\Flash\FlashServiceProvider::class,
         \Illuminate\Html\HtmlServiceProvider::class,
+        \Intervention\Image\ImageServiceProvider::class
 
     ],
 
@@ -197,6 +198,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'HTML'      =>\Illuminate\Html\HtmlFacade::class,
         'Form'      =>\Illuminate\Html\FormFacade::class,
+        'Image'     =>\Intervention\Image\Facades\Image::class,
     ],
 
 ];

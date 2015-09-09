@@ -22,8 +22,12 @@
                 <li class="{{setActive(route('vote'))}}"><a href="{{route('vote')}}">Vote</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">{{Auth::user()->name}}</a></li>
+                @if(!empty(Auth::user()->thumbnail))
+                    <img src="thumbnails/{{Auth::user()->thumbnail}}" class="img-circle">
+                @endif
+                <li><a href="{{route('profile')}}">{{Auth::user()->name}}</a></li>
                 <li><a href="{{route('logout')}}">Logout</a></li>
+
             </ul>
         </div><!-- /.navbar-collapse -->
         @endif

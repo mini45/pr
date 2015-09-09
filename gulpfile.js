@@ -23,7 +23,8 @@ gulp.task('copy', function () {
         'vendor/bower_components/datatables/media/js/jquery.dataTables.min.js',
         'vendor/bower_components/datatables/media/js/dataTables.bootstrap.min.js',
         'vendor/bower_components/ui-contextmenu/jquery.ui-contextmenu.min.js',
-        'resources/assets/js/fullcalendar.js'
+        'resources/assets/js/fullcalendar.js',
+        //'resources/assets/js/lang-all.js'
     ])
         .pipe(gulp.dest('public/js/'));
 

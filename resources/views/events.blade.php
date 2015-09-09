@@ -13,7 +13,7 @@
 @endsection
 @section('scripts')
     @parent
-    {!! HTML::script('js/event.min.js') !!}
     {!! HTML::script('js/moment.min.js') !!}
     {!! HTML::script('js/fullcalendar.js') !!}
+    {!! HTML::script('js/event.min.js') !!}
 @endsection

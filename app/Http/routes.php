@@ -41,7 +41,11 @@ Route::group(['middleware'=>'auth'],function() {
     Route::get('gallerie',['as'=>'gallerie','uses'=>'MainController@getGallerie']);
     Route::get('vote',['as'=>'vote','uses'=>'MainController@getVote']);
 
+    Route::get('profile',['as'=>'profile','uses'=>'ProfileController@getProfile']);
+    Route::post('profile',['uses'=>'ProfileController@postProfile']);
 
+
+    Route::get('thumbnails/{filename}','ImageController@getThumbnail');
 });
 
 
