@@ -22,7 +22,8 @@ gulp.task('copy', function () {
         'vendor/bower_components/sass-bootstrap/dist/js/bootstrap.min.js',
         'vendor/bower_components/datatables/media/js/jquery.dataTables.min.js',
         'vendor/bower_components/datatables/media/js/dataTables.bootstrap.min.js',
-        'vendor/bower_components/ui-contextmenu/jquery.ui-contextmenu.min.js'
+        'vendor/bower_components/ui-contextmenu/jquery.ui-contextmenu.min.js',
+        'resources/assets/js/fullcalendar.js'
     ])
         .pipe(gulp.dest('public/js/'));
 
@@ -36,7 +37,8 @@ gulp.task('copy', function () {
 
     gulp.src([
         'vendor/bower_components/datatables/media/css/dataTables.bootstrap.min.css',
-        'resources/assets/css/jquery-ui.min.css'
+        'resources/assets/css/jquery-ui.min.css',
+        'resources/assets/css/fullcalendar.min.css'
     ])
         .pipe(gulp.dest('public/css/'));
 
@@ -54,9 +56,26 @@ gulp.task('copy', function () {
 });
 
 gulp.task('script', function () {
+    gulp.src([
+        'resources/assets/js/_event.js'
+    ])
+        .pipe(concat('_event.js'))
+        .pipe(uglify())
+        .pipe(rename('event.min.js'))
+        .pipe(gulp.dest('public/js/'));
+
+    gulp.src([
+        'resources/assets/js/moment.js'
+    ])
+        .pipe(concat('moment.js'))
+        .pipe(uglify())
+        .pipe(rename('moment.min.js'))
+        .pipe(gulp.dest('public/js/'));
+
 
     return gulp.src([
-        'resources/assets/js/*.js',
+        'resources/assets/js/app.js',
+        //'resources/assets/js/_*.js',
         'public/packages/**/*.js'
     ])
         .pipe(concat('app.js'))
