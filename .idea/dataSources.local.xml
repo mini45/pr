@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - pr-webapp@localhost" uuid="b26750d4-b93d-4d14-ab41-c35a80ab70bb">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>pr-webapp.*</schema-pattern>
+      <default-schemas>pr-webapp.*</default-schemas>
+    </data-source>
+  </component>
+</project>
