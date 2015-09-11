@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Image;
 
 class MainController extends Controller
 {
@@ -98,11 +99,6 @@ class MainController extends Controller
     public function getFinanzen()
     {
         return view('finanzen');
-    }
-
-    public function getGallerie()
-    {
-        return view('gallerie');
     }
 
     public function getVote()

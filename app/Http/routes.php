@@ -38,7 +38,14 @@ Route::group(['middleware'=>'auth'],function() {
     Route::get('news',['as'=>'news','uses'=>'MainController@getNews']);
     Route::get('events',['as'=>'events','uses'=>'MainController@getEvents']);
     Route::get('finanzen',['as'=>'finanzen','uses'=>'MainController@getFinanzen']);
-    Route::get('gallerie',['as'=>'gallerie','uses'=>'MainController@getGallerie']);
+
+
+    Route::get('gallerie/{tag}',['as'=>'gallerie','uses'=>'ImageController@getGallerie']);
+    Route::get('gallerie',['as'=>'gallerie','uses'=>'ImageController@getGallerie']);
+
+    Route::post('gallerie',['as'=>'gallerie','uses'=>'ImageController@uploadImage']);
+
+
     Route::get('vote',['as'=>'vote','uses'=>'MainController@getVote']);
 
     Route::get('profile',['as'=>'profile','uses'=>'ProfileController@getProfile']);
