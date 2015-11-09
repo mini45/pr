@@ -6,7 +6,7 @@ var gulp = require('gulp'),
 
 gulp.task('style', function () {
     return gulp.src([
-        'resources/assets/scss/app.scss',
+        'resources/assets/sass/app.scss',
         //'vendor/bower_components/datatables/media/css/jquery.dataTables.css',
         'public/packages/**/*.css'
     ])
@@ -66,6 +66,14 @@ gulp.task('script', function () {
         .pipe(gulp.dest('public/js/'));
 
     gulp.src([
+        'resources/assets/js/_news.js'
+    ])
+        .pipe(concat('_news.js'))
+        .pipe(uglify())
+        .pipe(rename('news.min.js'))
+        .pipe(gulp.dest('public/js/'));
+
+    gulp.src([
         'resources/assets/js/moment.js'
     ])
         .pipe(concat('moment.js'))
@@ -86,7 +94,9 @@ gulp.task('script', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch('resources/assets/scss/**/*.scss', ['style']);
+    gulp.watch('resources/assets/sass/**/*.scss', ['style']);
+
+
     gulp.watch('resources/assets/js/**/*.js', ['script']);
     gulp.watch('public/packages/**/*.js', ['script']);
 });

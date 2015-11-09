@@ -1,8 +1,10 @@
 $(document).ready(function () {
 
     // page is now ready, initialize the calendar...
+    var $calender = $('#calendar');
+    var addEventModal = $('#addEvent');
 
-    $('#calendar').fullCalendar({
+    $calender.fullCalendar({
         lang: 'en',
         header:
             {
@@ -11,35 +13,26 @@ $(document).ready(function () {
                 right: 'month,basicWeek,basicDay'
             }
         ,
-
-        events: [
-            {
-                title: 'Event1',
-                start: '2015-09-09',
-                allDay: true,
-                editable: true,
-                startEditable: true,
-                durationEditable: true
-            },
-            {
-                title: 'Event2',
-                start: '2015-09-10'
-            }
-        ],
+        events: 'myfeed',
         dayClick: function(date, jsEvent, view) {
+            //console.log(date,jsEvent,view);
+            addEvent(date);
 
-            //alert('Clicked on: ' + date.format());
-            //
-            //alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-            //
-            //alert('Current view: ' + view.name);
+        },
+    });
 
-            // change the day's background color just for fun
-            //$(this).css('background-color', 'red');
+    function addEvent(date)
+    {
+        addEventModal.modal('toggle');
 
 
 
-        }
-    })
+        $calender.fullCalendar('refetchEvents');
+    }
+
+    $('#btn-save-event').on('click',function(){
+        var title = addEventModal.find('input');
+        var description = addEventModal.find('textarea');
+    });
 
 });

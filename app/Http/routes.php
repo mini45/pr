@@ -36,6 +36,9 @@ Route::group(['middleware'=>'auth'],function() {
     Route::get('auth/logout', ['as'=>'logout','uses'=>'Auth\AuthController@getLogout']);
 
     Route::get('news',['as'=>'news','uses'=>'MainController@getNews']);
+    Route::post('news',['as'=>'news.save','uses'=>'MainController@newNews']);
+
+
     Route::get('events',['as'=>'events','uses'=>'MainController@getEvents']);
     Route::get('finanzen',['as'=>'finanzen','uses'=>'MainController@getFinanzen']);
 
@@ -53,6 +56,9 @@ Route::group(['middleware'=>'auth'],function() {
 
 
     Route::get('thumbnails/{filename}','ImageController@getThumbnail');
+
+
+    Route::get('myfeed',['uses'=>'MainController@getFeed']);
 });
 
 

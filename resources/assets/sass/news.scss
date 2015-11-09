@@ -1,0 +1,30 @@
+.news-site {
+  .news-container {
+    width: 100%;
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+
+  }
+  .slide-trigger {
+    cursor: pointer;
+  }
+  .comment-section {
+    .comments {
+      border: 1px solid black;
+      border-radius: 10px;
+      margin-top: 20px;
+      hr {
+        margin: 0;
+      }
+
+      .comment-container {
+
+        background-color: #bebebe;
+        padding: 10px;
+      }
+    }
+  }
+
+}

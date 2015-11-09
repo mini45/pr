@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Comments;
+use App\Event;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use Image;
+use Illuminate\Http\Request as Req;
+use App\News;
+use Auth;
+use Carbon\Carbon;
+use Illuminate\Support\Collection;
 
 class MainController extends Controller
 {
@@ -88,7 +93,38 @@ class MainController extends Controller
 
     public function getNews()
     {
-        return view('news');
+        $newsCollection = News::orderBy('created_at', 'desc')->get();
+        $news = new Collection();
+
+        foreach($newsCollection as $new)
+        {
+            $date =Carbon::parse($new->created_at);
+            $news->push([
+                'author'=>$new->author()->first()->name,
+                'heading'=>$new->heading,
+                'content'=>$new->text,
+                'date'=>$date->format('d.m.Y'),
+                'time'=>$date->toTimeString(),
+                'comments'=>$new->comments()->get()
+            ]);
+
+
+        }
+//        dd($news);
+        return view('news',compact('news'));
+    }
+
+    public function newNews(Req $request)
+    {
+//        dd( $request->except('_token'));
+        $input = $request->except('_token');
+        News::create([
+            'user_id' => Auth::user()->id,
+            'heading'=> $input['heading'],
+            'text'=>$input['content']
+        ]);
+
+        return redirect()->back();
     }
 
     public function getEvents()
@@ -104,6 +140,20 @@ class MainController extends Controller
     public function getVote()
     {
         return view('vote');
+    }
+
+
+    public function getFeed(Request $request)
+    {
+//        dd($request->all());
+        $from = Carbon::parse($request->input('start'));
+        $to = Carbon::parse($request->input('end'));
+
+        $events = Event::where('start','>=',$from->toDateString())
+                        ->where('end','<=',$to->toDateString())
+                        ->get();
+
+        return response()->json($events);
     }
 
 }
