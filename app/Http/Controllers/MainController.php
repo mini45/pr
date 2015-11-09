@@ -156,4 +156,23 @@ class MainController extends Controller
         return response()->json($events);
     }
 
+    public function makeNewEvent(Request $request)
+    {
+//        dd($request->all());
+
+        $data = json_decode($request->input('data'));
+//       dd( Carbon::parse($data->date));
+
+
+
+        $event = new Event();
+        $event->start = Carbon::parse($data->date)->toDateString();
+        $event->end = Carbon::parse($data->date)->toDateString();
+        $event->title = $data->title;
+        $event->save();
+//        $event->description = $data->description;//TODO: einkommentieren
+
+//        dd($data);
+    }
+
 }

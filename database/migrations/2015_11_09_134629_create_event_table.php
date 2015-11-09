@@ -16,9 +16,10 @@ class CreateEventTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('url');
-            $table->boolean('allDay');
+            $table->boolean('allDay')->default(true);
             $table->dateTime('start');
             $table->dateTime('end');
+            $table->text('description');
             $table->timestamps();
         });
     }

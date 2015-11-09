@@ -59,6 +59,8 @@ Route::group(['middleware'=>'auth'],function() {
 
 
     Route::get('myfeed',['uses'=>'MainController@getFeed']);
+
+    Route::get('makeNewEvent',['uses'=>'MainController@makeNewEvent']);
 });
 
 
