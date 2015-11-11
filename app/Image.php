@@ -22,11 +22,24 @@ class Image extends Model
 
     public function tags()
     {
-        return $this->hasMany(Tags::class);
+        return $this->hasMany(Tags::class,'image');
     }
 
     public function user()
     {
         return $this->hasOne(User::class);
+    }
+
+    public function getDescription()
+    {
+        $desc = '';
+
+        foreach($this->tags()->get() as $tag){
+            $desc.= $tag->value.' <br>';
+        }
+
+        $desc.= 'Hochgeladen am '.$this->created_at;
+
+        return $desc;
     }
 }

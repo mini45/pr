@@ -3,6 +3,7 @@ $(document).ready(function () {
     // page is now ready, initialize the calendar...
     var $calender = $('#calendar');
     var addEventModal = $('#addEvent');
+    var showEventModal = $('#showEvent');
     //var start;
     //var end;
     var EventDate;
@@ -22,6 +23,12 @@ $(document).ready(function () {
             //console.log(date,jsEvent,view);
             addEvent(date);
         },
+        eventClick: function(calEvent, jsEvent, view){
+            console.log(calEvent);
+            showEventModal.find('.modal-title').html(calEvent.title);
+            showEventModal.find('.description').html(calEvent.description);
+            showEventModal.modal('toggle');
+        },
     });
 
     function addEvent(date)
@@ -39,7 +46,7 @@ $(document).ready(function () {
         arr['date'] =EventDate;
         //arr['end'] =description;
 
-        console.log(JSON.stringify(arr));
+        //console.log(JSON.stringify(arr));
 
         //console.log(title,description);
         $.ajax({

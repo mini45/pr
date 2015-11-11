@@ -169,8 +169,9 @@ class MainController extends Controller
         $event->start = Carbon::parse($data->date)->toDateString();
         $event->end = Carbon::parse($data->date)->toDateString();
         $event->title = $data->title;
+
+        $event->description = $data->description;
         $event->save();
-//        $event->description = $data->description;//TODO: einkommentieren
 
 //        dd($data);
     }

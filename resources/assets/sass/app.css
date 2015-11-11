@@ -8,7 +8,7 @@ Error: File to import not found or unreadable: vendor/bower_components/sass-boot
 4: @import "vendor/bower_components/components-font-awesome/scss/font-awesome";
 5: 
 6: @import "news.scss";
-7: body { padding-top: 70px; }
+7: @import "gallerie.scss";
 
 Backtrace:
 app.scss:2
@@ -54,4 +54,4 @@ C:/Ruby22-x64/bin/scss:23:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: vendor/bower_components/sass-bootstrap/lib/bootstrap.\A         on line 2 of app.scss\A \A 1: // Bootstrap\A 2: @import \"vendor/bower_components/sass-bootstrap/lib/bootstrap\";\A 3: \A 4: @import \"vendor/bower_components/components-font-awesome/scss/font-awesome\";\A 5: \A 6: @import \"news.scss\";\A 7: body { padding-top: 70px; }"; }
+  content: "Error: File to import not found or unreadable: vendor/bower_components/sass-bootstrap/lib/bootstrap.\A         on line 2 of app.scss\A \A 1: // Bootstrap\A 2: @import \"vendor/bower_components/sass-bootstrap/lib/bootstrap\";\A 3: \A 4: @import \"vendor/bower_components/components-font-awesome/scss/font-awesome\";\A 5: \A 6: @import \"news.scss\";\A 7: @import \"gallerie.scss\";"; }

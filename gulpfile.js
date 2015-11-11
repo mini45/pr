@@ -5,6 +5,15 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify');
 
 gulp.task('style', function () {
+
+    gulp.src([
+        'resources/assets/css/nanogallery.css'
+    ])
+        .pipe(concat('nanogallery.css'))
+        .pipe(sass({outputStyle: "compressed"}))
+        .pipe(rename('nanogallery.min.css'))
+        .pipe(gulp.dest('public/css/'));
+
     return gulp.src([
         'resources/assets/sass/app.scss',
         //'vendor/bower_components/datatables/media/css/jquery.dataTables.css',
@@ -79,6 +88,14 @@ gulp.task('script', function () {
         .pipe(concat('moment.js'))
         .pipe(uglify())
         .pipe(rename('moment.min.js'))
+        .pipe(gulp.dest('public/js/'));
+
+    gulp.src([
+        'resources/assets/js/jquery.nanogallery.js'
+    ])
+        .pipe(concat('jquery.nanogallery.js'))
+        .pipe(uglify())
+        .pipe(rename('jquery.nanogallery.min.js'))
         .pipe(gulp.dest('public/js/'));
 
 

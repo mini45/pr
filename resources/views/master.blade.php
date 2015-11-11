@@ -8,6 +8,9 @@
         {!! HTML::style('css/app.css') !!}
         {!! HTML::style('css/jquery-ui.min.css') !!}
     @show
+    {!! HTML::script('js/jquery.min.js') !!}
+    {!! HTML::script('js/jquery-ui.min.js') !!}
+    {!! HTML::script('js/bootstrap.min.js') !!}
 </head>
 <body>
 @include('navigation')
@@ -18,10 +21,9 @@
 </div>
 
 
+
+</body>
 @section('scripts')
-    {!! HTML::script('js/jquery.min.js') !!}
-    {!! HTML::script('js/jquery-ui.min.js') !!}
-    {!! HTML::script('js/bootstrap.min.js') !!}
     {!! HTML::script('js/app.min.js') !!}
     <script>
         $(function () {
@@ -29,8 +31,8 @@
                 headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
             });
         });
+
     </script>
 
 @show
-</body>
 </html>

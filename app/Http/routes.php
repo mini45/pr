@@ -46,10 +46,14 @@ Route::group(['middleware'=>'auth'],function() {
     Route::get('gallerie/{tag}',['as'=>'gallerie','uses'=>'ImageController@getGallerie']);
     Route::get('gallerie',['as'=>'gallerie','uses'=>'ImageController@getGallerie']);
 
-    Route::post('gallerie',['as'=>'gallerie','uses'=>'ImageController@uploadImage']);
+    Route::post('gallerie/upload',['as'=>'gallerie.upload','uses'=>'ImageController@uploadImages']);
+    Route::get('gallerie/picture/{filename}','ImageController@getGallerieImage');
+    Route::get('gallerie/thumbnail/picture/{filename}','ImageController@getGallerieThumbnailImage');
+    Route::get('makeNewTag',['uses'=>'ImageController@makeNewTag']);
 
 
     Route::get('vote',['as'=>'vote','uses'=>'MainController@getVote']);
+
 
     Route::get('profile',['as'=>'profile','uses'=>'ProfileController@getProfile']);
     Route::post('profile',['uses'=>'ProfileController@postProfile']);
