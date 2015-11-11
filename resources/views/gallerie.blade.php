@@ -73,7 +73,7 @@
                 thumbnailHoverEffect: 'slideUp,borderLighter',
                 viewerToolbar: {
                     autoMinimize: 0,
-                    standard: 'minimizeButton ,previousButton,pageCounter,nextButton,playButton,closeButton, fullscreenButton,label,custom2'
+                    standard: 'minimizeButton ,previousButton,pageCounter,nextButton,playPauseButton,closeButton, fullscreenButton,label,custom2'
                 },
                 fnImgToolbarCustInit: myImgToolbarCustInit,
                 fnImgToolbarCustDisplay: myImgToolbarCustDisplay,
